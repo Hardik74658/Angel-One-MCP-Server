@@ -14,7 +14,11 @@ mcp = FastMCP("AngelOneTradeServer")
 # Add a buy stock tool
 @mcp.tool()
 def buyStockFromAngelOne(stock_symbol: str, quantity: int) -> str:
-    """Buy stock from Angel One"""
+    """Buy stock from Angel One 
+    Args:
+        stock_symbol (str): The stock symbol to buy,ALSO add -EQ After each equity stock purchase to make it work properly.
+        quantity (int): The number of shares to buy.
+    """
     try:
         result = placeOrder(stock_symbol, int(quantity), order_type='BUY')
         if not result:
@@ -26,7 +30,11 @@ def buyStockFromAngelOne(stock_symbol: str, quantity: int) -> str:
 # Add a sell stock tool 
 @mcp.tool()
 def sellStockFromAngelOne(stock_symbol: str, quantity: int) -> str:
-    """Sell stock from Angel One"""
+    """Sell stock from Angel One
+    Args:
+        stock_symbol (str): The stock symbol to sell,ALSO add -EQ After each equity stock sale to make it work properly.
+        quantity (int): The number of shares to sell.
+    """
     try:
         result = placeOrder(stock_symbol, int(quantity), order_type='SELL')
         if not result:
